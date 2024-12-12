@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise Aashi</title>
+    <body style="background:url('happy-birthday-to-you-background-with-balloons-confetti-birthday-hat-and-birthday-cake-in-blue-and-white-suitable-for-greeting-card-banner-social-media-post-poster-etc-illustration-vector.jpg')">
+
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #0b4cad;
+            
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff4081;
+            margin-top: 50px;
+        }
+
+        .surprise-button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .surprise-button:hover {
+            background-color: #e91e63;
+        }
+
+        .slideshow {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+    </body>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday AASHI!</h1>
+        <p>Click below to reveal your surprise!</p>
+        <button class="surprise-button" onclick="showSurprise()">View Surprise</button>
+
+        <div class="slideshow" id="slideshow">
+            <audio id="birthdayMusic" src="happy-birthday-254480.mp3" autoplay></audio>
+            <div class="slide">
+                <img src="happy4.jpg" alt="Birthday Photo 1">
+            </div>
+            <div class="slide">
+                <img src="happy3.jpg" alt="Birthday Photo 2">
+            </div>
+            <div class="slide">
+                <img src="happy.1.jpg" alt="Birthday Photo 3">
+            </div>
+            <div class="slide">
+                <img src="happy5.jpg" alt="Birthday Photo 5">
+            </div>
+            <div class="slide">
+                <img src="WhatsApp Image 2024-12-12 at 18.16.16_44e630ab.jpg" alt="Birthday Photo 6">
+            </div>
+            <div class="slide">
+                <img src="WhatsApp Image 2024-12-12 at 18.16.17_c92c7a2f.jpg" alt="Birthday Photo 4">
+            </div>
+            <div class="slide">
+                <img src="WhatsApp Image 2024-12-12 at 18.16.18_26ea2c17.jpg" alt="Birthday Photo 4">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSurprise() {
+            document.querySelector('.surprise-button').style.display = 'none';
+            const slideshow = document.getElementById('slideshow');
+            slideshow.style.display = 'block';
+            document.getElementById('birthdayMusic').play();
+            showSlide();
+        }
+
+        function showSlide() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                slide.style.display = index === currentSlide ? 'block' : 'none';
+            });
+            currentSlide = (currentSlide + 1) % slides.length;
+            setTimeout(showSlide, 3000); // Change slide every 3 seconds
+        }
+    </script>
+</body>
+</html>
